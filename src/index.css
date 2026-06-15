@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* ── Brand Design Tokens ── */
+:root {
+  --mb-bg: #f7f7f5;
+  --mb-white: #ffffff;
+  --mb-orange: #e87a55;
+  --mb-teal: #1a9e94;
+  --mb-dark: #1a1a1a;
+  --mb-muted: #71717a;
+  --mb-muted-light: #888888;
+  --mb-border: #e0e0dd;
+  --mb-border-light: #d0d0cd;
+  --mb-red: #dc3545;
+
+  /* Dark section tokens */
+  --mb-dark-bg: #0c0c0c;
+  --mb-dark-surface: #141414;
+  --mb-dark-border: #2a2a2a;
+  --mb-dark-muted: #666666;
+
+  /* Glow tokens */
+  --mb-glow-orange: rgba(232, 122, 85, 0.4);
+  --mb-glow-teal: rgba(26, 158, 148, 0.3);
+}
+
+@theme inline {
+  --color-mb-bg: var(--mb-bg);
+  --color-mb-white: var(--mb-white);
+  --color-mb-orange: var(--mb-orange);
+  --color-mb-teal: var(--mb-teal);
+  --color-mb-dark: var(--mb-dark);
+  --color-mb-muted: var(--mb-muted);
+  --color-mb-muted-light: var(--mb-muted-light);
+  --color-mb-border: var(--mb-border);
+  --color-mb-border-light: var(--mb-border-light);
+  --color-mb-red: var(--mb-red);
+}
+
+/* ── Global Typography ── */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--mb-bg);
+  color: var(--mb-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Stable hero height on mobile Safari while browser chrome expands/collapses */
+.min-safe-screen {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.min-safe-screen-minus-nav {
+  min-height: calc(100vh - 60px);
+  min-height: calc(100svh - 60px);
+}
+
+/* ── Retro Terminal Effects ── */
+
+/* Scanline overlay — applied to dark sections */
+.retro-scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+}
+
+/* Subtle noise/grain texture */
+.retro-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* CRT glow effect for text */
+.glow-orange {
+  text-shadow: 0 0 10px var(--mb-glow-orange), 0 0 30px rgba(232, 122, 85, 0.15);
+}
+
+.glow-teal {
+  text-shadow: 0 0 10px var(--mb-glow-teal), 0 0 30px rgba(26, 158, 148, 0.15);
+}
+
+/* Box glow for cards and borders */
+.box-glow-orange {
+  box-shadow: 0 0 20px rgba(232, 122, 85, 0.15), 0 0 60px rgba(232, 122, 85, 0.05);
+}
+
+.box-glow-teal {
+  box-shadow: 0 0 20px rgba(26, 158, 148, 0.12), 0 0 60px rgba(26, 158, 148, 0.04);
+}
+
+/* Terminal cursor blink */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.terminal-cursor::after {
+  content: '_';
+  animation: cursor-blink 1s step-end infinite;
+  color: var(--mb-orange);
+  font-weight: 600;
+}
+
+/* Subtle grid background pattern */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(26, 158, 148, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 158, 148, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Platform badge glow — two-layer: text-shadow + ambient background */
+@keyframes platform-text-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(232, 122, 85, 0.4), 0 0 28px rgba(232, 122, 85, 0.15); }
+  50% { text-shadow: 0 0 18px rgba(232, 122, 85, 0.6), 0 0 44px rgba(232, 122, 85, 0.25); }
+}
+
+@keyframes platform-bg-glow {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.75; }
+}
+
+.platform-glow-text {
+  animation: platform-text-glow 3s ease-in-out infinite;
+}
+
+.platform-glow-bg {
+  background: radial-gradient(ellipse at center, rgba(232, 122, 85, 0.08) 0%, transparent 70%);
+  animation: platform-bg-glow 3s ease-in-out infinite;
+}
+
+/* CTA button glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 4px 16px rgba(232, 122, 85, 0.3), 0 0 0 0 rgba(232, 122, 85, 0); }
+  50% { box-shadow: 0 6px 24px rgba(232, 122, 85, 0.4), 0 0 0 4px rgba(232, 122, 85, 0.08); }
+}
+
+.cta-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Card hover glow transition */
+.card-hover-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-hover-glow:hover {
+  box-shadow: 0 4px 20px rgba(26, 158, 148, 0.12), 0 0 0 1px rgba(26, 158, 148, 0.15);
+  border-color: rgba(26, 158, 148, 0.3);
+  transform: translateY(-2px);
+}
+
+.card-hover-glow-orange:hover {
+  box-shadow: 0 4px 20px rgba(232, 122, 85, 0.12), 0 0 0 1px rgba(232, 122, 85, 0.15);
+  border-color: rgba(232, 122, 85, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Respect reduced motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Shared keyframes (used by DeviceMockups) ── */
+@keyframes spin-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-counter-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+@keyframes spin-clockwise-watch {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-counter-clockwise-watch {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
