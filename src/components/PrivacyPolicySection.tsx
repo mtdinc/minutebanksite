@@ -111,7 +111,7 @@ export default function PrivacyPolicySection() {
             </div>
             <div className="border-l-2 border-[#1a9e94] pl-5">
               <p className="font-normal text-[#777777] text-[13px] leading-relaxed">
-                <span className="text-[#555555] font-medium">Sign-in &amp; security:</span> Data syncs to Supabase with row-level security. We show no ads and do not use your advertising identifier; we use Airbridge to measure how well our own install campaigns perform through Apple's SKAdNetwork. Crash and diagnostic reports go to Sentry with IP address stripped and no account or username attached. If you choose Google Sign-In, Google may process your IP address to estimate general location for fraud prevention.
+                <span className="text-[#555555] font-medium">Optional analytics:</span> In releases with “Share usage analytics,” setup, focus, unlock, and upgrade events are collected only if you agree. A random installation ID connects these events, not your account or blocked-app choices. Turn sharing off to stop collection and request deletion. These releases pause Airbridge attribution; older releases may still use it. Crash diagnostics through Sentry and sign-in security are separate.
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function PrivacyPolicySection() {
             <div>
               <h3 className="font-normal text-[#1a1a1a] text-[16px] mb-2">Your Rights (GDPR & CCPA)</h3>
               <p className="text-[#777777] text-[13px] leading-relaxed">
-                Access, correct, delete, or export your data anytime from Settings. Account deletion removes all cloud data within 30 days.
+                Manage your account data from Settings. Optional analytics is separate from your account: turn sharing off on each device to request deletion. Analytics is kept for up to 90 days.
               </p>
             </div>
             <div className="flex-shrink-0">

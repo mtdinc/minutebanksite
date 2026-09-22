@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import Footer from './Footer';
+import { FREE_INCLUDES, PRO_FEATURES, TRIAL_LENGTH_TEXT, TRIAL_LENGTH_ADJECTIVE } from '../lib/pricing';
 
 interface FaqItem {
   id: string;
@@ -31,7 +32,7 @@ const FAQ_SECTIONS: FaqSection[] = [
           <>
             <ol className="list-decimal pl-6 space-y-1">
               <li>Create a free MinuteBank account with your email. This is what links your data across devices.</li>
-              <li>Grant Screen Time permission so you can block distracting apps and websites.</li>
+              <li>Grant Screen Time permission so you can block distracting apps and websites. Lock two individual apps free. Pro adds unlimited apps, websites, categories, schedules, and Auto Mode, with two weeks free on the yearly plan.</li>
               <li>Add at least one tag (a bundle of apps to block) and pick which apps go in it.</li>
               <li>Start your first focus session from the home screen. You earn coins as you focus.</li>
             </ol>
@@ -75,7 +76,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <li>Start a focus session and pick that tag. The picked apps and websites are shielded for the whole session.</li>
             </ol>
             <p className="mt-3 text-[#71717a]">
-              Free users get 3 tags total (one default plus two custom). Pro is unlimited. Blocking itself is free for everyone.
+              Lock two individual apps free. Pro adds unlimited apps, websites, categories, scheduled locks, and Auto Mode, with a {TRIAL_LENGTH_ADJECTIVE} free trial on the yearly plan. Free users get 3 tags total (one default plus two custom); Pro is unlimited.
             </p>
           </>
         ),
@@ -124,15 +125,19 @@ const FAQ_SECTIONS: FaqSection[] = [
                 </thead>
                 <tbody className="text-[#555555]">
                   <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Coins, session history, streaks</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
-                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Tags &amp; blocking rules</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
+                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Tags &amp; goals</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
+                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">App Lock</td><td className="py-2 px-3">Two individual apps</td><td className="py-2 px-3">Yes</td></tr>
                   <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Live timer ticking on a second device</td><td className="py-2 px-3">No</td><td className="py-2 px-3">Yes</td></tr>
-                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Apple Watch full timer features</td><td className="py-2 px-3">No</td><td className="py-2 px-3">Yes</td></tr>
+                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Live timer on Apple Watch (part of Instant sync)</td><td className="py-2 px-3">No</td><td className="py-2 px-3">Yes</td></tr>
                   <tr><td className="py-2 pr-3">Group Challenges</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
                 </tbody>
               </table>
             </div>
             <p className="mt-3 text-[#71717a]">
               Free accounts still sync sessions after they finish; what they don't get is the live tick-by-tick continuity (start on iPhone, watch the seconds count down on Mac).
+            </p>
+            <p className="mt-2 text-[#71717a]">
+              Set up App Lock before 1.4? It stays free on that device.
             </p>
           </>
         ),
@@ -191,8 +196,18 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: "What's included in Pro versus Free?",
         answer: (
           <>
-            <p className="mb-2"><strong>Free includes:</strong> all core focus features, app and website blocking with up to 3 tags, full session history, basic stats, group viewing.</p>
-            <p><strong>Pro adds:</strong> live timer continuity across iPhone, iPad, Mac, and Watch; full Apple Watch timer features; unlimited tags; Group Challenge participation; advanced stats and exports.</p>
+            <p className="mb-2"><strong>Free includes:</strong></p>
+            <ul className="list-disc pl-6 space-y-1 mb-3">
+              {FREE_INCLUDES.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="mb-2"><strong>Pro adds:</strong></p>
+            <ul className="list-disc pl-6 space-y-1">
+              {PRO_FEATURES.map((feature) => (
+                <li key={feature.title}><strong>{feature.title}:</strong> {feature.detail}</li>
+              ))}
+            </ul>
           </>
         ),
       },
@@ -201,7 +216,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'Does the yearly plan include a free trial?',
         answer: (
           <p>
-            Yes. Yearly Pro starts with 7 days free. Monthly Pro has no trial. The trial is per-account and one-time only, so picking yearly first is the way to try Pro at no cost.
+            Yes. Yearly Pro starts with {TRIAL_LENGTH_TEXT} free. Monthly and Lifetime have no trial. The trial is one-time per Apple ID, so picking yearly first is the way to try Pro at no cost.
           </p>
         ),
       },
@@ -240,7 +255,16 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'Does Apple Family Sharing work?',
         answer: (
           <p>
-            Yes for the subscription. One Pro purchase covers up to 6 family members through Family Sharing. Each person still needs their own MinuteBank account (with their own email) for their own coins, sessions, and streaks. Family doesn't pool data, only the subscription.
+            Not at the moment. Pro is per Apple ID. Each person needs their own Pro and their own MinuteBank account.
+          </p>
+        ),
+      },
+      {
+        id: 'app-lock-grandfathered',
+        question: 'I used App Lock before version 1.4. Do I lose access?',
+        answer: (
+          <p>
+            No. If App Lock was configured on your device before 1.4, it stays on at no cost on that device. Reinstalling or moving to a new phone starts fresh; email us and we will sort it out.
           </p>
         ),
       },
@@ -264,7 +288,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'What is a "tag" and why is Free limited to 3?',
         answer: (
           <p>
-            A tag is a named focus context with its own list of apps to block. Example: a "Deep Work" tag set to block Instagram, TikTok, and X. When you start a focus session, you pick the tag and those apps are shielded for the session. Website blocking is set up once at the App Lock level (apply to all sessions). Free users get 3 tags (one default plus two custom). Pro is unlimited. Blocking itself is free for everyone; the tag count is the only Free/Pro split.
+            Tags organize your focus sessions by subject or project. Free users get 3 tags (one default plus two custom); Pro has unlimited tags. Choose what to block separately in App Lock. Two individual apps are free; more apps, websites, categories, scheduled locks, and Auto Mode require Pro.
           </p>
         ),
       },
@@ -323,7 +347,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'Can I run two timers at the same time?',
         answer: (
           <p>
-            No. Study, Reward, and Challenge are mutually exclusive. Starting one stops the other. This is by design so minutes never get double-counted.
+            No. You can only run one timer at a time. Starting a new one stops the current one. This is by design, so minutes never get double-counted.
           </p>
         ),
       },
@@ -332,7 +356,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: "What's a Group Challenge versus a personal Challenge?",
         answer: (
           <p>
-            A personal Challenge is a structured pomodoro session for you alone. A Group Challenge is a shared minute target inside a study group: any member can start one, and everyone in the group contributes minutes toward the total. Pro is required to participate fully.
+            A personal Challenge is a structured pomodoro session for you alone. A Group Challenge is a shared minute target inside a study group: any member can start one, and everyone in the group contributes minutes toward the total. Joining creates a dedicated tag for the challenge, so you need a free tag slot: Free accounts have 3 tags, Pro is unlimited.
           </p>
         ),
       },
@@ -371,10 +395,10 @@ const FAQ_SECTIONS: FaqSection[] = [
       },
       {
         id: 'wallet-cap',
-        question: 'Why did my coins stop at 450?',
+        question: 'Why did my coins stop at 1,500?',
         answer: (
           <p>
-            The wallet has a hard cap of 450 coins. Once you're full, additional coins from new sessions are discarded and you'll see a "wallet full" toast. This keeps the economy honest: spend some coins (Reward time, goals) and you'll start earning again. Streaks and stats keep accumulating regardless of the cap.
+            The wallet has a hard cap of 1,500 coins. Once you're full, the extra coins from new sessions are lost and you'll see a "wallet full" message. This keeps the economy honest: spend some coins (Reward time, goals) and you'll start earning again. Streaks and stats keep accumulating regardless of the cap.
           </p>
         ),
       },
@@ -399,7 +423,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'How do I pair my Apple Watch with MinuteBank?',
         answer: (
           <p>
-            If your iPhone has MinuteBank installed and your Apple Watch is paired with that iPhone, the Watch app installs automatically. Open it on your Watch and sign in with the same email if it asks. Live timer features on the Watch require Pro.
+            If your iPhone has MinuteBank installed and your Apple Watch is paired with that iPhone, the Watch app installs automatically. Open it on your Watch and sign in with the same email if it asks. The live timer on the Watch is part of Instant sync, a Pro feature.
           </p>
         ),
       },
@@ -408,7 +432,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'My Watch shows a different state than my phone. What now?',
         answer: (
           <p>
-            Pull down to refresh inside the Watch app. If it's still off, force-quit and reopen the iPhone app — the Watch syncs from iPhone, so refreshing the gateway fixes most cases.
+            Pull down to refresh inside the Watch app. If it's still off, force-quit and reopen the iPhone app — the Watch syncs from your iPhone, so refreshing the iPhone app fixes most cases.
           </p>
         ),
       },
@@ -417,7 +441,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'Can I start and stop sessions from the Watch?',
         answer: (
           <p>
-            Yes. The active timer continuity that makes Watch shine across devices needs Pro (the same tier that powers iPhone↔Mac live sync).
+            Yes. The live timer features that make the Watch feel instant are part of Instant sync, the same Pro feature that keeps iPhone and Mac in live sync.
           </p>
         ),
       },
@@ -426,7 +450,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: "Why isn't the Mac app in my Dock, and how do I open the sidebar layout?",
         answer: (
           <p>
-            By design. The Mac app lives in the menu bar (top-right of your screen), not the Dock, so it stays out of your way. Click the menu bar icon to open the popover. To get the full sidebar window with Home, Stats, Goals, History, Subscription, and Settings tabs, click <strong>Open Main Window</strong> in the popover footer. (For preferences alone, Cmd+, opens a standard macOS Settings window.)
+            By design. The Mac app lives in the menu bar (top-right of your screen), not the Dock, so it stays out of your way. Click the menu bar icon to open the popover. To get the full sidebar window with Home, Stats, Rewards, History, Sync, and Settings tabs, click <strong>Open Main Window</strong> in the popover footer. (For preferences alone, Cmd+, opens a standard macOS Settings window.)
           </p>
         ),
       },
@@ -453,7 +477,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'My widget is stuck on "TIMER ACTIVE" but no timer is running.',
         answer: (
           <p>
-            iOS refreshes widgets lazily. Open the app once to force a refresh. If it still shows the wrong state, remove the widget from your home screen and re-add it.
+            iOS updates widgets on its own schedule. Open the app once to force a refresh. If it still shows the wrong state, remove the widget from your home screen and re-add it.
           </p>
         ),
       },
@@ -497,7 +521,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'How is the leaderboard ranked?',
         answer: (
           <p>
-            Two factors: your master streak and your weekly plus minutes (focus minutes earned this week). Friends and groups each have their own boards.
+            Two things: your master streak and your weekly minutes (the focus minutes you earned this week). Friends and groups each have their own boards.
           </p>
         ),
       },
@@ -512,7 +536,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'What data does MinuteBank collect?',
         answer: (
           <p>
-            Just what's needed to run the app: account email, focus session history, coin balance, group memberships, push token. We use Sentry for crash diagnostics and Airbridge to measure how well our own ad campaigns perform. No advertising IDs (IDFA), no cross-app tracking, no selling of data ever. Full breakdown on the <Link className="text-[#1a9e94] hover:underline" to="/privacy">Privacy Policy</Link>.
+            Account features use data such as your email, focus history, coin balance, group memberships, and push token. In releases with “Share usage analytics,” you can separately agree to limited setup, focus, unlock, and upgrade events under a random installation ID. No account is required, and blocked-app details are never included. Turn sharing off in Data &amp; Privacy to stop collection and request deletion. These releases pause Airbridge attribution; crash diagnostics through Sentry are separate. Full details are in the <Link className="text-[#1a9e94] hover:underline" to="/privacy">Privacy Policy</Link>.
           </p>
         ),
       },
@@ -567,7 +591,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'iPhone and Mac show different daily minutes for the same day.',
         answer: (
           <p>
-            Most often this is a sync lag. Force-quit and reopen both. If it persists past a few minutes, sign out and back in on the device that's behind. We're tracking this kind of divergence and improving it actively.
+            Most often this is a sync lag. Force-quit and reopen both. If it persists past a few minutes, sign out and back in on the device that's behind. We're working on this kind of mismatch and improving it.
           </p>
         ),
       },
@@ -597,9 +621,10 @@ const COMMON_FIXES = [
   { anchor: '#pro-not-showing', label: 'Pro not showing on Mac or iPad' },
   { anchor: '#sync-checklist', label: 'Data not syncing between devices' },
   { anchor: '#shield-not-appearing', label: "Shield isn't appearing" },
-  { anchor: '#wallet-cap', label: 'Coins stuck at 450' },
+  { anchor: '#wallet-cap', label: 'Coins stuck at 1,500' },
   { anchor: '#restore-purchases', label: 'Restore purchases on a new device' },
   { anchor: '#reset-vs-delete', label: 'Reset Data vs Delete Account' },
+  { anchor: '#app-lock-grandfathered', label: 'App Lock was free for me before 1.4' },
 ];
 
 function FaqItemBlock({ item }: { item: FaqItem }) {
