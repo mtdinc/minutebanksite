@@ -1,6 +1,11 @@
 export const APP_STORE_URL = 'https://apps.apple.com/app/minute-bank/id6757351945'
 export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/BZTj7yJe'
+
+// The apps' deployment floors (iOS and iPadOS share one). The QR card, Help,
+// and Terms read these. Help also names the macOS codename (Sequoia) and the
+// iOS 18 Screen Time API in prose; check those lines when a floor changes.
 export const MIN_IOS_VERSION = 18
+export const MIN_MACOS_VERSION = 15
 
 export type DownloadDestination = 'App Store' | 'TestFlight'
 

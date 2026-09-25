@@ -4,6 +4,7 @@
 
 import { Link } from 'react-router';
 import LegalPageLayout from './LegalPageLayout';
+import { MIN_IOS_VERSION, MIN_MACOS_VERSION } from '../lib/downloadLinks';
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -16,7 +17,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function TermsOfServicePage() {
   return (
-    <LegalPageLayout title="Terms of Service" lastUpdated="March 15, 2026">
+    <LegalPageLayout title="Terms of Service" lastUpdated="September 24, 2026">
 
       <Section title="1. Acceptance of Terms">
         <p>
@@ -33,7 +34,8 @@ export default function TermsOfServicePage() {
         <p>
           MinuteBank is a focus timer app that rewards study sessions with in-app
           currency. Features include app blocking (via Screen Time), goals, social
-          leaderboards, and an Apple Watch companion. The app requires iOS 17 or later.
+          leaderboards, and an Apple Watch companion. The app requires iOS or
+          iPadOS {MIN_IOS_VERSION} or later, or macOS {MIN_MACOS_VERSION} or later.
         </p>
       </Section>
 

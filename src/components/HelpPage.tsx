@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import Footer from './Footer';
 import { FREE_INCLUDES, PRO_FEATURES, TRIAL_LENGTH_TEXT, TRIAL_LENGTH_ADJECTIVE } from '../lib/pricing';
+import { MIN_IOS_VERSION, MIN_MACOS_VERSION } from '../lib/downloadLinks';
 
 interface FaqItem {
   id: string;
@@ -32,7 +33,7 @@ const FAQ_SECTIONS: FaqSection[] = [
           <>
             <ol className="list-decimal pl-6 space-y-1">
               <li>Create a free MinuteBank account with your email. This is what links your data across devices.</li>
-              <li>Grant Screen Time permission so you can block distracting apps and websites. Lock two individual apps free. Pro adds unlimited apps, websites, categories, schedules, and Auto Mode, with two weeks free on the yearly plan.</li>
+              <li>Grant Screen Time permission so you can block distracting apps and websites. Lock two individual apps free. Pro adds unlimited apps, websites, categories, schedules, and Auto Mode, with {TRIAL_LENGTH_TEXT} free on the yearly plan.</li>
               <li>Add at least one tag (a bundle of apps to block) and pick which apps go in it.</li>
               <li>Start your first focus session from the home screen. You earn coins as you focus.</li>
             </ol>
@@ -161,7 +162,7 @@ const FAQ_SECTIONS: FaqSection[] = [
             <li>Force-quit the app on both devices and reopen.</li>
             <li>On the home screen, pull down to refresh.</li>
             <li>If it's still off, sign out and back in on the device that's behind.</li>
-            <li>Check that you're on iOS 18+, iPadOS 18+, or macOS 15+ (older versions can't sync).</li>
+            <li>Check that you're on iOS {MIN_IOS_VERSION}+, iPadOS {MIN_IOS_VERSION}+, or macOS {MIN_MACOS_VERSION}+ (older versions can't sync).</li>
             <li>Live timer continuity (timer ticking in real time on a second device) is Pro-only. Free accounts sync sessions after they end, not while they run.</li>
           </ol>
         ),
@@ -600,7 +601,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'Which iOS and macOS versions are required?',
         answer: (
           <p>
-            iOS 18.0 or newer, iPadOS 18.0 or newer, macOS 15 (Sequoia) or newer. App blocking depends on Apple's iOS 18 Screen Time API, so we can't go lower without losing it.
+            iOS {MIN_IOS_VERSION}.0 or newer, iPadOS {MIN_IOS_VERSION}.0 or newer, macOS {MIN_MACOS_VERSION} (Sequoia) or newer. App blocking depends on Apple's iOS 18 Screen Time API, so we can't go lower without losing it.
           </p>
         ),
       },
