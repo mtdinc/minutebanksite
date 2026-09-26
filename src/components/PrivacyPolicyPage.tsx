@@ -14,7 +14,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPageLayout title="Privacy Policy" lastUpdated="September 22, 2026">
+    <LegalPageLayout title="Privacy Policy" lastUpdated="September 26, 2026">
 
       <Section title="1. Introduction">
         <p>
@@ -29,8 +29,9 @@ export default function PrivacyPolicyPage() {
           The following data may be synced to Supabase or otherwise processed as
           part of authentication, cross-device sync, social features, and
           account management. These data types are collected for app
-          functionality. Third-party services may process additional data for
-          the purposes described in Section 5.
+          functionality. If you opt in, your email address is also used for the
+          email updates described in Section 2b. Third-party services may process
+          additional data for the purposes described in Section 5.
         </p>
         <ul className="list-disc pl-6 space-y-1">
           <li>Name or display name and email address</li>
@@ -64,6 +65,23 @@ export default function PrivacyPolicyPage() {
           immediately stops new collection and requests deletion for that
           installation. The app shows when deletion is still waiting for a
           connection. Crash diagnostics are separate from this control.
+        </p>
+      </Section>
+
+      <Section title="2b. Optional Email Updates">
+        <p className="mb-3">
+          When you sign in, you can tick “Email me tips and updates.” The box is
+          unticked unless you tick it. If you do, we may email you occasional tips
+          for using MinuteBank and news about new features. You can sign in
+          without ticking it, and you can turn it on or off at any time in the
+          app's account settings.
+        </p>
+        <p>
+          We use your account email and, if you shared one, your name. We keep a
+          record of your choice, when you made it, and where in the app you made
+          it. We do not sell your email or share it with other companies for their
+          advertising. If you sign in with Apple and choose Hide My Email, we do
+          not send these emails. Turning the setting off stops them.
         </p>
       </Section>
 
@@ -118,8 +136,9 @@ export default function PrivacyPolicyPage() {
 
       <Section title="7. Data Retention">
         <p>
-          Account data is retained while your account is active and is removed
-          within 30 days of account deletion. Optional usage analytics is separate:
+          Account data, including your email updates choice, is retained while
+          your account is active and is removed within 30 days of account
+          deletion. Optional usage analytics is separate:
           each random enrollment and its events are kept for up to 90 days. Undelivered
           events expire on the device after seven days. After an analytics deletion,
           a credential hash may remain until the enrollment expires, only to prevent
@@ -156,8 +175,9 @@ export default function PrivacyPolicyPage() {
           <a href="mailto:support@minutebank.app" className="text-[#e87a55] hover:underline">
             support@minutebank.app
           </a>.
-          We respond within 30 days. This applies to all users regardless of
-          location (GDPR, CCPA, and equivalent regulations).
+          We respond within 30 days. You can also withdraw your consent to email
+          updates at any time in the app's account settings. This applies to all
+          users regardless of location (GDPR, CCPA, and equivalent regulations).
         </p>
       </Section>
 
