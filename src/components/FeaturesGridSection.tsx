@@ -185,17 +185,17 @@ export default function FeaturesGridSection() {
   const features = [
     {
       title: "Home Screen Widget",
-      description: "One tap to start, one tap to stop. Pick a tag from your home screen and begin studying instantly. No app to open, no screens to navigate. Your daily progress fills up right on the widget.",
+      description: "One tap to start, one tap to stop. Pick a tag on your home screen and start focusing right away. No app to open first. Your daily progress fills up right on the widget.",
       illustration: <HomeWidgetSketch />,
     },
     {
       title: "Apple Watch",
-      description: "Start countdown, count-up, or Endurance sessions directly from your wrist. Watch face complications show your live timer, today's minutes, and coin balance without opening the app.",
+      description: "Start countdown, count-up, or Endurance sessions from your wrist. The watch face shows your live timer, today's minutes, and your coin balance, so you don't need to open the app.",
       illustration: <AppleWatchSketch />,
     },
     {
       title: "Dynamic Island",
-      description: "Live Activities project your running timer and coins earned onto your Lock Screen and Dynamic Island. Check progress at a glance without unlocking your phone.",
+      description: "Your running timer and the coins you've earned show up on your Lock Screen and in the Dynamic Island. Check your progress without unlocking your phone.",
       illustration: <DynamicIslandSketch />,
     },
   ];

@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import HeroSection from './HeroSection';
 import HowItWorksSection from './HowItWorksSection';
 import FeaturesGridSection from './FeaturesGridSection';
+import PricingSection from './PricingSection';
 import FeaturesTabSection from './FeaturesTabSection';
 import PlatformSyncSection from './PlatformSyncSection';
 import GroupsSection from './GroupsSection';
@@ -42,6 +43,8 @@ export default function LandingPage() {
         <GroupsSection />
         <SectionDivider />
         <FeaturesGridSection />
+        <SectionDivider />
+        <PricingSection />
         <FinalCTA />
         <SectionDivider />
         <PrivacyPolicySection />

@@ -32,8 +32,9 @@ const FAQ_SECTIONS: FaqSection[] = [
         answer: (
           <>
             <ol className="list-decimal pl-6 space-y-1">
-              <li>Create a free MinuteBank account with your email. This is what links your data across devices.</li>
-              <li>Grant Screen Time permission so you can block distracting apps and websites. Lock two individual apps free. Pro adds unlimited apps, websites, categories, schedules, and Auto Mode, with {TRIAL_LENGTH_TEXT} free on the yearly plan.</li>
+              <li>Start the {TRIAL_LENGTH_ADJECTIVE} free trial on the yearly plan, or choose monthly or lifetime. Setup on iPhone and iPad asks you to pick one.</li>
+              <li>Create a MinuteBank account with your email. This is what links your data across devices.</li>
+              <li>Grant Screen Time permission so you can block distracting apps, websites, and categories.</li>
               <li>Add at least one tag (a bundle of apps to block) and pick which apps go in it.</li>
               <li>Start your first focus session from the home screen. You earn coins as you focus.</li>
             </ol>
@@ -77,7 +78,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <li>Start a focus session and pick that tag. The picked apps and websites are shielded for the whole session.</li>
             </ol>
             <p className="mt-3 text-[#71717a]">
-              Lock two individual apps free. Pro adds unlimited apps, websites, categories, scheduled locks, and Auto Mode, with a {TRIAL_LENGTH_ADJECTIVE} free trial on the yearly plan. Free users get 3 tags total (one default plus two custom); Pro is unlimited.
+              You can lock any apps, websites, and categories, and use scheduled locks and Auto Mode.
             </p>
           </>
         ),
@@ -127,18 +128,14 @@ const FAQ_SECTIONS: FaqSection[] = [
                 <tbody className="text-[#555555]">
                   <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Coins, session history, streaks</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
                   <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Tags &amp; goals</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
-                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">App Lock</td><td className="py-2 px-3">Two individual apps</td><td className="py-2 px-3">Yes</td></tr>
                   <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Live timer ticking on a second device</td><td className="py-2 px-3">No</td><td className="py-2 px-3">Yes</td></tr>
-                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Live timer on Apple Watch (part of Instant sync)</td><td className="py-2 px-3">No</td><td className="py-2 px-3">Yes</td></tr>
+                  <tr className="border-b border-[#e0e0dd]/60"><td className="py-2 pr-3">Live timer on Apple Watch</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
                   <tr><td className="py-2 pr-3">Group Challenges</td><td className="py-2 px-3">Yes</td><td className="py-2 px-3">Yes</td></tr>
                 </tbody>
               </table>
             </div>
             <p className="mt-3 text-[#71717a]">
               Free accounts still sync sessions after they finish; what they don't get is the live tick-by-tick continuity (start on iPhone, watch the seconds count down on Mac).
-            </p>
-            <p className="mt-2 text-[#71717a]">
-              Set up App Lock before 1.4? It stays free on that device.
             </p>
           </>
         ),
@@ -194,21 +191,25 @@ const FAQ_SECTIONS: FaqSection[] = [
     items: [
       {
         id: 'pro-features',
-        question: "What's included in Pro versus Free?",
+        question: 'What does MinuteBank cost, and what does Pro include?',
         answer: (
           <>
-            <p className="mb-2"><strong>Free includes:</strong></p>
+            <p className="mb-3">
+              Setup on iPhone and iPad starts with a {TRIAL_LENGTH_ADJECTIVE} free trial of Pro on the yearly plan. After the trial, you need a Pro plan to keep using MinuteBank on iPhone and iPad: yearly, monthly, or lifetime. Monthly and lifetime have no trial.
+            </p>
+            <p className="mb-2"><strong>Pro includes:</strong></p>
+            <ul className="list-disc pl-6 space-y-1 mb-3">
+              {PRO_FEATURES.map((feature) => (
+                <li key={feature.title}><strong>{feature.title}:</strong> {feature.detail}</li>
+              ))}
+            </ul>
+            <p className="mb-2"><strong>The Free plan includes:</strong></p>
             <ul className="list-disc pl-6 space-y-1 mb-3">
               {FREE_INCLUDES.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="mb-2"><strong>Pro adds:</strong></p>
-            <ul className="list-disc pl-6 space-y-1">
-              {PRO_FEATURES.map((feature) => (
-                <li key={feature.title}><strong>{feature.title}:</strong> {feature.detail}</li>
-              ))}
-            </ul>
+            <p>The Mac app works on the Free plan.</p>
           </>
         ),
       },
@@ -217,7 +218,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'Does the yearly plan include a free trial?',
         answer: (
           <p>
-            Yes. Yearly Pro starts with {TRIAL_LENGTH_TEXT} free. Monthly and Lifetime have no trial. The trial is one-time per Apple ID, so picking yearly first is the way to try Pro at no cost.
+            Yes. Yearly Pro starts with {TRIAL_LENGTH_TEXT} free for new subscribers. Monthly and Lifetime have no trial. The trial is one-time per Apple ID.
           </p>
         ),
       },
@@ -289,7 +290,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'What is a "tag" and why is Free limited to 3?',
         answer: (
           <p>
-            Tags organize your focus sessions by subject or project. Free users get 3 tags (one default plus two custom); Pro has unlimited tags. Choose what to block separately in App Lock. Two individual apps are free; more apps, websites, categories, scheduled locks, and Auto Mode require Pro.
+            Tags organize your focus sessions by subject or project. The Free plan has 3 tags (one default plus two custom); Pro has unlimited tags. You choose what to block separately, in App Lock.
           </p>
         ),
       },
@@ -337,7 +338,7 @@ const FAQ_SECTIONS: FaqSection[] = [
           <>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Study (focus):</strong> set a duration, focus, earn 1 coin per minute. The shield is up for the whole session. Works for any focus task, not only studying.</li>
-              <li><strong>Reward (leisure):</strong> spend coins to unlock app time. The Reward timer ticks the spending down so you know when your break ends.</li>
+              <li><strong>Reward (time bank):</strong> spend minutes you bought for a time bank. The Reward timer counts them down so you know when your break ends.</li>
               <li><strong>Challenge:</strong> structured pomodoro-style sessions with multiple rounds and rest breaks. Best for long deep work blocks.</li>
             </ul>
           </>
@@ -424,7 +425,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'How do I pair my Apple Watch with MinuteBank?',
         answer: (
           <p>
-            If your iPhone has MinuteBank installed and your Apple Watch is paired with that iPhone, the Watch app installs automatically. Open it on your Watch and sign in with the same email if it asks. The live timer on the Watch is part of Instant sync, a Pro feature.
+            If your iPhone has MinuteBank installed and your Apple Watch is paired with that iPhone, the Watch app installs automatically. Open it on your Watch and sign in with the same email if it asks. The live timer on the Watch works on every plan.
           </p>
         ),
       },
@@ -442,7 +443,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'Can I start and stop sessions from the Watch?',
         answer: (
           <p>
-            Yes. The live timer features that make the Watch feel instant are part of Instant sync, the same Pro feature that keeps iPhone and Mac in live sync.
+            Yes, on Free and Pro. The Watch works through your iPhone: start, pause and stop on either one and the other follows. Live sync with a Mac or a second iPhone or iPad is Instant sync, a Pro feature.
           </p>
         ),
       },
@@ -460,7 +461,7 @@ const FAQ_SECTIONS: FaqSection[] = [
         question: 'How do I add the home screen or lock screen widget?',
         answer: (
           <p>
-            Long-press an empty area on your home screen, tap the + in the top-left, search "MinuteBank", and pick a widget size. The widget can show your active timer, today's coins, or weekly minutes. Tapping Start on the widget begins a session without opening the app.
+            Long-press an empty area on your home screen, tap the + in the top-left, search "MinuteBank", and pick a widget size. The widget can show your active timer, today's coins, or weekly minutes. Tapping Start on the widget begins a Count up session without opening the app. Your other devices see it once you open MinuteBank on that iPhone.
           </p>
         ),
       },

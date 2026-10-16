@@ -7,6 +7,7 @@ import { ACTIVE_DOWNLOAD_URL } from '../lib/downloadLinks';
 const navLinks = [
   { label: 'Features', target: 'features' },
   { label: 'How It Works', target: 'how-it-works' },
+  { label: 'Pricing', target: 'pricing' },
   { label: 'Platforms', target: 'platforms' },
   { label: 'Social', target: 'groups' },
   { label: 'Privacy', target: 'privacy' },

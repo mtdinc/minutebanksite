@@ -1,9 +1,10 @@
 import { useRef } from 'react';
 import { Watch, Smartphone, Tablet, Monitor } from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
 import { IPhone17Mockup } from './DeviceMockups';
+import DownloadButton from './DownloadButton';
+import DownloadQrCard from './DownloadQrCard';
 import { gsap, useGSAP } from '../lib/gsap';
-import { ACTIVE_DOWNLOAD_URL, QR_CARD_TITLE, IOS_REQUIREMENT_TEXT } from '../lib/downloadLinks';
+import { TRIAL_LENGTH_ADJECTIVE } from '../lib/pricing';
 import homeMockup from '../assets/home_mockup.webp';
 
 const HERO_CIRCLE_RADII = [150, 300, 450, 600, 750, 900];
@@ -116,8 +117,6 @@ export default function HeroSection() {
 }
 
 function HeroContent() {
-  const qrCardTitle = QR_CARD_TITLE;
-
   return (
     <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20 xl:gap-28 w-full">
 
@@ -149,20 +148,24 @@ function HeroContent() {
         </div>
 
         {/* Sub-statement */}
-        <p className="font-normal text-[#71717a] leading-[1.7] mb-6 lg:mb-10 max-w-[520px] text-[15px] sm:text-[17px]">
-          MinuteBank blocks your distracting apps at the OS level and makes you earn coins through focused work to unlock them. Your wallet caps at 450 coins, your daily streak only grows when you show up, and your friends can see everything. Procrastination finally has consequences.
+        <p className="font-normal text-[#71717a] leading-[1.7] mb-4 max-w-[520px] text-[15px] sm:text-[17px]">
+          MinuteBank blocks your distracting apps and makes you earn coins to unlock them. Your streak only grows on the days you show up, and your friends can see all of it. Procrastination finally costs you something.
+        </p>
+
+        {/* Plan line: the trial, in one sentence */}
+        <p className="mb-6 lg:mb-10 max-w-[520px] text-[13px] sm:text-[14px] text-[#888888]">
+          <a
+            href="#pricing"
+            onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }}
+            className="hover:text-[#1a1a1a] transition-colors underline decoration-[#e0e0dd] underline-offset-4 hover:decoration-[#e87a55] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e87a55] focus-visible:ring-offset-2 rounded"
+          >
+            Start with a {TRIAL_LENGTH_ADJECTIVE} free trial on the yearly plan.
+          </a>
         </p>
 
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <a
-            href={ACTIVE_DOWNLOAD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-[260px] h-[56px] bg-[#e87a55] text-white font-medium text-[16px] tracking-wide cursor-pointer cta-glow border-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e87a55] focus-visible:ring-offset-2 rounded hover:scale-[1.03] active:scale-[0.97] transition-transform no-underline"
-          >
-            Download
-          </a>
+          <DownloadButton />
 
           <button
             onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
@@ -173,36 +176,7 @@ function HeroContent() {
         </div>
 
         {/* QR Code */}
-        <a
-          href={ACTIVE_DOWNLOAD_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hero-qr hidden sm:flex items-center gap-4 mt-8 border border-[#e0e0dd] bg-white/80 backdrop-blur-sm px-5 py-4 cursor-pointer hover:border-[#ccc] transition-colors text-left no-underline"
-        >
-          <div className="flex-shrink-0 p-1.5 bg-white border border-[#e8e8e5]">
-            <QRCodeSVG
-              value={ACTIVE_DOWNLOAD_URL}
-              size={72}
-              bgColor="#ffffff"
-              fgColor="#1a1a1a"
-              level="M"
-            />
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5 mb-1">
-              <Smartphone className="w-3 h-3 text-[#888888]" aria-hidden="true" />
-              <span className="text-[#888888] text-[10px] tracking-[0.15em] uppercase">
-                Scan with your phone
-              </span>
-            </div>
-            <p className="text-[#1a1a1a] text-[13px] font-medium">
-              {qrCardTitle}
-            </p>
-            <p className="text-[#888888] text-[11px]">
-              {IOS_REQUIREMENT_TEXT}
-            </p>
-          </div>
-        </a>
+        <DownloadQrCard className="hero-qr mt-8" />
       </div>
 
       {/* Phone Mockup - Right */}

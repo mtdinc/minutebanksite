@@ -17,7 +17,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function TermsOfServicePage() {
   return (
-    <LegalPageLayout title="Terms of Service" lastUpdated="September 24, 2026">
+    <LegalPageLayout title="Terms of Service" lastUpdated="October 16, 2026">
 
       <Section title="1. Acceptance of Terms">
         <p>
@@ -48,9 +48,31 @@ export default function TermsOfServicePage() {
 
       <Section title="4. In-App Purchases">
         <p>
-          MinuteBank offers optional Pro subscriptions (monthly, yearly) and a lifetime
-          purchase. All purchases are processed by Apple and subject to Apple's terms.
-          Subscription management and cancellation are handled through your Apple ID settings.
+          MinuteBank offers Pro subscriptions (monthly and yearly) and a one-time lifetime
+          purchase. On iPhone and iPad, MinuteBank may require a Pro plan or an active free
+          trial to use the app; the app shows the price and terms before you buy. If you used
+          MinuteBank on iPhone or iPad before it required a plan, you keep the plan you had,
+          as long as you keep the app installed or sign in with an account you made before then.
+        </p>
+        <p className="mt-3">
+          The yearly plan may start with a free trial for eligible new subscribers.
+          Subscriptions renew automatically unless you cancel at least 24 hours before the
+          end of the current period or trial. All purchases are processed by Apple and subject
+          to Apple's terms. Subscription management and cancellation are handled through your
+          Apple ID settings, and refund requests go to Apple.
+        </p>
+        <p className="mt-3">
+          A lifetime purchase is a one-time payment for MinuteBank Pro. "Lifetime" means the
+          life of MinuteBank, not your lifetime: you have Pro for as long as we offer
+          MinuteBank. It includes Pro features we add later, but not separate products. If we
+          plan to stop offering MinuteBank, we will tell you at least 30 days before, unless
+          something outside our control prevents it, and where we can, we will release a last
+          version that works without our servers.
+        </p>
+        <p className="mt-3">
+          If your trial or subscription ends and the app requires a Pro plan, MinuteBank shows
+          only the purchase screen until you buy or restore a plan. Your saved data stays
+          saved, and App Lock stops blocking your apps the next time you open MinuteBank.
         </p>
       </Section>
 
@@ -183,7 +205,7 @@ export default function TermsOfServicePage() {
           We reserve the right to modify, suspend, or discontinue the app (or any
           part of it) at any time, with or without notice, and without liability to you.
           There is no obligation to provide updates, enhancements, or continued availability
-          of the service.
+          of the service. For lifetime purchases, the notice described in Section 4 applies.
         </p>
       </Section>
 

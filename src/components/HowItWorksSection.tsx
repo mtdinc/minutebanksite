@@ -12,7 +12,7 @@ const steps = [
   {
     number: "2",
     title: "EARN",
-    description: "Every minute earns coins. Your wallet caps at 450 coins, so the only way forward is to spend them. No infinite stockpile, no hoarding.",
+    description: "Every minute of focus earns coins. Show up, put in the time, and your wallet grows. The more you focus, the more you have to spend.",
     icon: Coins
   },
   {
@@ -24,7 +24,7 @@ const steps = [
   {
     number: "4",
     title: "TRACK",
-    description: "Build your streak. Show up daily and your master streak grows. Friends see your weekly minutes on the leaderboard and feel it when they fall behind.",
+    description: "Build your streak. Show up every day and your master streak grows. Friends see your weekly minutes on the leaderboard, so falling behind is public.",
     icon: Trophy
   }
 ];

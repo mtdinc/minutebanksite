@@ -190,14 +190,14 @@ export default function GroupsSection() {
               Focus With Friends
             </h2>
             <p className="text-[#71717a] text-[16px] lg:text-[17px] leading-[1.7] max-w-[460px] mx-auto lg:mx-0 mb-8">
-              Create a study group. Invite friends. See who's putting in the hours.
-              It's not about competition. It's about showing up together, even when apart.
+              Create a study group. Invite friends. See who puts in the hours.
+              It's about showing up together, even when you're apart.
             </p>
 
             {/* Bullets */}
             <div className="groups-bullets space-y-4 mb-8">
               {[
-                { label: "Accountability circles", desc: "When they're studying and you're not, use it to motivate yourself to get going." },
+                { label: "Friendly pressure", desc: "When your friends are studying and you're not, that's your push to get going." },
                 { label: "Weekly leaderboard", desc: "See everyone's minutes at a glance. Natural motivation." },
                 { label: "No pressure", desc: "Study at your own pace. The group is there when you need it." },
               ].map((item) => (
@@ -217,7 +217,7 @@ export default function GroupsSection() {
             {/* Invite callout */}
             <div className="groups-callout flex items-center gap-2 justify-center lg:justify-start">
               <Link className="w-4 h-4 text-[#888]" />
-              <span className="text-[#888] text-[13px]">Invite via link. Friends join in one tap.</span>
+              <span className="text-[#888] text-[13px]">Invite with a link. Friends join in one tap.</span>
             </div>
           </div>
 

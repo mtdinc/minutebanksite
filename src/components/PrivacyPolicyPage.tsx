@@ -14,7 +14,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPageLayout title="Privacy Policy" lastUpdated="September 26, 2026">
+    <LegalPageLayout title="Privacy Policy" lastUpdated="October 16, 2026">
 
       <Section title="1. Introduction">
         <p>
@@ -47,8 +47,21 @@ export default function PrivacyPolicyPage() {
           In releases with the “Share usage analytics” control, this collection is
           off until you agree on Welcome or in Data &amp; Privacy. You can use the
           app without agreeing and without creating an account. We record a small
-          set of events about setup, completed focus sessions, coin-funded unlocks,
-          days the app is active, upgrade screens, and purchase or trial outcomes.
+          set of events about setup (including how the Screen Time permission
+          request ended, as a fixed label such as “approved” or “canceled”, never
+          an error message), focus sessions started, discarded or completed, coins
+          spent on app time (bought or used by Auto Mode), days the app is active,
+          your answer to our notification prompt, which of our focus reminders you
+          opened, whether you saw or used the invite-a-friend card, when you save
+          a focus goal (only whether it is daily, weekly or turned off), when a
+          focus session is saved with a topic (only whether the timer or an edit
+          added it), upgrade screens, and purchase or trial outcomes. We do not
+          record which apps you lock, how long you use them, or how many coins you
+          spend. We never record the names of your focus areas or topics, or how
+          many minutes your goals ask for. These
+          events are not tied to your identity: they carry no name, email address,
+          account or Apple ID, so we cannot tell which person or account they come
+          from.
         </p>
         <p className="mb-3">
           These events use a separate random installation identifier, the app
@@ -57,6 +70,13 @@ export default function PrivacyPolicyPage() {
           We do not connect this identifier to your account or across your devices.
           This analytics data is stored with Supabase, not sent to an advertising
           network. It is not combined with other companies' data for ad targeting.
+        </p>
+        <p className="mb-3">
+          We collect usage analytics only with your consent. If you are in the
+          European Economic Area, the United Kingdom or Switzerland, consent is our
+          legal basis (GDPR Article 6(1)(a)). You can withdraw it at any time in
+          Data &amp; Privacy. We do not sell usage analytics or share it for
+          advertising.
         </p>
         <p>
           Usage analytics never includes which apps or websites you block, Screen
@@ -178,6 +198,9 @@ export default function PrivacyPolicyPage() {
           We respond within 30 days. You can also withdraw your consent to email
           updates at any time in the app's account settings. This applies to all
           users regardless of location (GDPR, CCPA, and equivalent regulations).
+          If you are in the European Economic Area, the United Kingdom or
+          Switzerland, you can also complain to your local data protection
+          authority.
         </p>
       </Section>
 
