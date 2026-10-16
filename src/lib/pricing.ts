@@ -1,14 +1,13 @@
 // The one place on the website that states prices, the trial length, and
 // what each plan includes. PricingSection, HeroSection, and HelpPage read
-// from here, so a price change is an edit to this file plus App Store Connect.
+// from here, so a price change on the site is an edit to this file only.
 //
 // From iOS 1.5, a new iPhone or iPad install starts with the yearly trial or
 // buys a plan (hard paywall). The Free plan stays for the Mac and for people
 // who used MinuteBank before; Help describes it, the pricing section does not.
 //
-// Contract 6 of the monetization master plan: the app and the screenshots
-// never show a price literal; the website is the one exception and states
-// prices in USD with a "may vary by region" note.
+// Prices are US list prices. Apple bills in local currency, so they always
+// appear with the "may vary by region" note (REGION_NOTE).
 
 export const PRICES = {
   monthly: '$5.99',
@@ -16,7 +15,7 @@ export const PRICES = {
   lifetime: '$79.99',
 } as const;
 
-// Matches the P2W StoreKit introductory offer on the yearly plan (TWO_WEEKS).
+// Length of the free trial on the yearly plan, as offered in the App Store.
 export const TRIAL_LENGTH_TEXT = '14 days';
 // Same length as an adjective, for "a 14-day free trial".
 export const TRIAL_LENGTH_ADJECTIVE = '14-day';
@@ -52,8 +51,8 @@ export interface ProFeature {
   detail: string;
 }
 
-// Source: MinuteBankCore ProFeatureCatalog.swift, keep in sync by hand (monetization master plan contract 1)
-// Copied word for word, in catalog order. Do not add a sixth row here.
+// Pro features listed on the Help page. Same wording and order as the app's
+// Pro feature list; change this only when that list changes.
 export const PRO_FEATURES: ProFeature[] = [
   {
     title: 'Unlimited App Lock',
