@@ -5,7 +5,7 @@ import { useCallback, useRef, useState } from "react";
 import { Timer, Lock, Sparkles, type LucideIcon } from "lucide-react";
 import { IPhone17Mockup } from "./DeviceMockups";
 import { gsap, useGSAP } from "../lib/gsap";
-import timerScreenshot from "../assets/timerScreen.png";
+import timerScreenshot from "../assets/timer_mockup.webp";
 import enduranceMockup from "../assets/endurance_mockup.webp";
 import vaultMockup from "../assets/vault_mockup.webp";
 
@@ -27,7 +27,7 @@ const tabs: TabContent[] = [
     heading: "Every Way to Focus",
     subtext: "Countdown, count-up, or endurance. Whatever mode you need, we have it. Pick whichever depending on your mood.",
     screenshot: enduranceMockup,
-    screenshotAlt: "Endurance mode timer screen",
+    screenshotAlt: "Home screen with the Count up, Countdown and Endurance modes",
   },
   {
     label: "Vault",
@@ -43,7 +43,7 @@ const tabs: TabContent[] = [
     heading: "Just a Timer, Nothing More",
     subtext: "If you want it simple, strip away everything. No coins, no blocking, no streak pressure. Just a timer and tracker that syncs everywhere.",
     screenshot: timerScreenshot,
-    screenshotAlt: "Clean minimal timer screen",
+    screenshotAlt: "A running focus timer with Pause and Complete",
   },
 ];
 

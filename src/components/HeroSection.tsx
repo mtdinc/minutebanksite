@@ -209,7 +209,7 @@ function HeroContent() {
       <div className="hero-phone flex flex-shrink-0 items-center justify-center z-20">
         <IPhone17Mockup
           screenshot={homeMockup}
-          alt="MinuteBank app home screen showing today's progress, coin wallet, and tag goals"
+          alt="MinuteBank home screen showing coins, today's focus goals and a group challenge week"
           className="scale-[0.7] sm:scale-[0.8] lg:scale-[1] xl:scale-[1.1]"
           fetchPriority="high"
         />
