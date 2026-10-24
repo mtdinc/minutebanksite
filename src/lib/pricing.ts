@@ -10,9 +10,9 @@
 // appear with the "may vary by region" note (REGION_NOTE).
 
 export const PRICES = {
-  monthly: '$5.99',
-  yearly: '$34.99',
-  lifetime: '$79.99',
+  monthly: '$2.99',
+  yearly: '$17.49',
+  lifetime: '$59.99',
 } as const;
 
 // Length of the free trial on the yearly plan, as offered in the App Store.
