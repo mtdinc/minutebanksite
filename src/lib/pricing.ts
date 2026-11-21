@@ -10,8 +10,8 @@
 // appear with the "may vary by region" note (REGION_NOTE).
 
 export const PRICES = {
-  monthly: '$2.99',
-  yearly: '$17.49',
+  monthly: '$1.49',
+  yearly: '$8.99',
   lifetime: '$59.99',
 } as const;
 
